@@ -4,11 +4,16 @@
   "description": "backen con express",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rodri",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
   }
 }
