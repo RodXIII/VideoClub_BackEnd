@@ -1,0 +1,14 @@
+{
+  "name": "backend_videoclub",
+  "version": "1.0.0",
+  "description": "backen con express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
