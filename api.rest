@@ -2,8 +2,8 @@ POST  http://localhost:3000/user/register
 Content-Type:application/json
 
 {
-   "username":"RodXIII",
-   "password":"A32432367z"
+   "username": "rodewewrqewrq@badass.cool",
+   "password": "123456Az"
 }
 
 ###
@@ -17,7 +17,8 @@ PATCH  http://localhost:3000/user/5dcbf869ef3ee4528b1f7ec7
 Content-Type:application/json
 
 {
-   "username":"Rodrigo"
+   "username": "rodri@badass.cool",
+   "password": "32432367Az",
 }
 
 ###
