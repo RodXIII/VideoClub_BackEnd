@@ -1,28 +1,61 @@
-const fs = require('fs');
-const { generateId } = require('../utils');
+const {
+	generateId
+} = require('../utils');
+const UserModel = require('../models/User');
+const mongoose = require('mongoose');
 
 const loginController = (req, res) => {
-  const user = req.body;
-  const db = JSON.parse(fs.readFileSync('./db.json', 'utf-8'));
 
-  const foundUser = db.users.find(
-    existentUser =>
-      existentUser.email === user.email &&
-      existentUser.password === user.password,
-  );
 
-  if (foundUser) {
-    const token = generateId();
 
-    foundUser.token = token;
+	UserModel.findOne({
+			username: req.body.username
 
-    fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
-    res
-      .status(200)
-      .json({ message: `valid login`, user: foundUser });
-  } else {
-    res.status(401).json({ message: `invalid login` });
-  }
+		})
+		.then((foundUser) => {
+
+			if (foundUser.password != req.body.password) {
+				res.send({
+					message: 'la contraseña es incorrecta'
+				})
+				res.status(401);
+				return;
+			}
+
+			const token = generateId();
+			UserModel.findOneAndUpdate({
+					_id: foundUser._id
+				}, {
+					token: token
+				})
+				.then((userLoged) => {
+
+					res.send({
+						username: foundUser.username,
+						token: userLoged.token
+					})
+
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+
+
+
+
+
+
+		})
+		.catch((err) => {
+			console.log(err);
+
+		})
+
+
+
+
 };
+
+
 
 module.exports = loginController;

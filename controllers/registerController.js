@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const UserModel = require('../models/User');
 
 async function registerController(req, res) {
@@ -9,9 +7,14 @@ async function registerController(req, res) {
       password: req.body.password
     }).save()
   
-    res.send(user).status(200).json(user);
+    res.send(user)
     
-    const longitudPattern = /.{8,}/
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+    /* const longitudPattern = /.{8,}/
   
     if (!longitudPattern.test(user.password)) {
       return res
@@ -49,16 +52,6 @@ async function registerController(req, res) {
       return res
         .status(400)
         .json({ message: `email ${user.username} already exists` });
-    }
-
-    
- 
-    
-  } catch (error) {
-    console.log(error);
-  }
-
-
-};
+    } */ 
 
 module.exports = registerController;

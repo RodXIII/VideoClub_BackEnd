@@ -20,8 +20,8 @@ const authorizationMiddleware = require('./middlewares/authorizationMiddleware')
 app.use(express.json());
 
 app.post('/user/login', loginController);
-app.get('/user/:id/logout', authorizationMiddleware, logoutController);
-app.get('/user/:id/me', authorizationMiddleware, profileControler);
+app.get('/user/logout/:id', authorizationMiddleware, logoutController);
+app.get('/user/me/:id', authorizationMiddleware, profileControler);
 app.post('/user/register', registerController);
 /* app.patch('/user/:id', (req, res) => {
     UserModel.findByIdAndUpdate(req.params.id, {
@@ -39,7 +39,8 @@ mongoose.connect('mongodb://localhost:27017/VideoClub', //conexión a MongoDB
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        useFindAndModify: false
     })
     .then(() => console.log('conectado a mongodb'))
     .catch(error => console.log('Error al conectar a MongoDB ' + error));

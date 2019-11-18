@@ -2,23 +2,28 @@ POST  http://localhost:3000/user/register
 Content-Type:application/json
 
 {
-   "username": "rodewewrqewrq@badass.cool",
+   "username": "Rodri@badass.cool",
    "password": "123456Az"
 }
 
 ###
 
-GET  http://localhost:3000/user
-Content-Type:application/json
-
-
-###
-PATCH  http://localhost:3000/user/5dcbf869ef3ee4528b1f7ec7
+POST http://localhost:3000/user/login
 Content-Type:application/json
 
 {
-   "username": "rodri@badass.cool",
-   "password": "32432367Az",
+   "username": "Rodri@badass.cool",
+   "password": "123456Az"
+}
+
+
+###
+PATCH  http://localhost:3000/user/login
+Content-Type:application/json
+
+{
+   "username": "Rodri@badass.cool",
+   "password": "123456Az",
 }
 
 ###
