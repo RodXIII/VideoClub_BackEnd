@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
-const userRouter=require('./routes/users')
+const userRouter=require('./routes/users');
+const movieRouter=require('./routes/movies')
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -19,4 +21,5 @@ mongoose.connect('mongodb://localhost:27017/VideoClub', //conexión a MongoDB
     .then(() => console.log('conectado a mongodb'))
     .catch(error => console.log('Error al conectar a MongoDB ' + error));
 app.use('/user',userRouter);
+app.use('/movies', movieRouter);
 app.listen(3000, () => console.log('servidor levantado correctamente'));

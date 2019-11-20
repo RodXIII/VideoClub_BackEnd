@@ -27,10 +27,14 @@ GET http://localhost:3000/user/logout/5dd2b72d71b003780b14b983
 
 ###
 
-GET  http://localhost:3000/user/
+GET  http://localhost:3000/user/5dd55f7fb0e22c230088a8fe
 Content-Type:application/json
 
 {
    "username": "Rodri@badass.cool",
    "password": "123456Az"
 }
+###
+
+GET  http://localhost:3000/movies/
+Content-Type:application/json
