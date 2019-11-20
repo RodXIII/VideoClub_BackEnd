@@ -16,17 +16,21 @@ Content-Type:application/json
    "password": "123456Az"
 }
 
-
 ###
-PATCH  http://localhost:3000/user/login
-Content-Type:application/json
+
+GET http://localhost:3000/user/logout/5dd2b72d71b003780b14b983
 
 {
    "username": "Rodri@badass.cool",
-   "password": "123456Az",
+   "token" : "3e5d4c9e-953d-4cfe-a75b-f135f44d65a2",
 }
 
 ###
 
-DELETE   http://localhost:3000/user/5dcbf869ef3ee4528b1f7ec7
+GET  http://localhost:3000/user/
 Content-Type:application/json
+
+{
+   "username": "Rodri@badass.cool",
+   "password": "123456Az"
+}

@@ -1,7 +1,7 @@
 {
   "name": "backend_videoclub",
   "version": "1.0.0",
-  "description": "backen con express",
+  "description": "backend con express",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",

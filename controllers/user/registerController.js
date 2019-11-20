@@ -1,19 +1,19 @@
-const UserModel = require('../models/User');
+const UserModel = require('../../models/User');
 
 async function registerController(req, res) {
   try {
     const user = await new UserModel({
       username: req.body.username,
       password: req.body.password
-    }).save()
-  
+    }).save()  
     res.send(user)
-    
-
   } catch (error) {
     console.log(error);
   }
 };
+
+module.exports = registerController;
+
     /* const longitudPattern = /.{8,}/
   
     if (!longitudPattern.test(user.password)) {
@@ -53,5 +53,3 @@ async function registerController(req, res) {
         .status(400)
         .json({ message: `email ${user.username} already exists` });
     } */ 
-
-module.exports = registerController;

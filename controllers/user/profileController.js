@@ -1,5 +1,5 @@
 
-const UserModel = require('../models/User');
+const UserModel = require('../../models/User');
 
 async function profileController (req, res) {
     UserModel.find({})
