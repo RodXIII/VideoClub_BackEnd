@@ -2,7 +2,7 @@ POST  http://localhost:3000/user/register
 Content-Type:application/json
 
 {
-   "username": "Rodri@badass.cool",
+   "username": "Rodri",
    "password": "123456Az"
 }
 
@@ -12,7 +12,7 @@ POST http://localhost:3000/user/login
 Content-Type:application/json
 
 {
-   "username": "Rodri@badass.cool",
+   "username": "Rodri",
    "password": "123456Az"
 }
 
@@ -38,3 +38,16 @@ Content-Type:application/json
 
 GET  http://localhost:3000/movies/
 Content-Type:application/json
+
+
+###
+
+GET  http://localhost:3000/movies/popular
+Content-Type:application/json
+
+
+###
+
+GET  http://localhost:3000/movies/top-rated
+Content-Type:application/json
+
