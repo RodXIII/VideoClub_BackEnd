@@ -1,3 +1,15 @@
+###
+
+PATCH  http://localhost:3000/user/order
+Content-Type:application/json
+
+{
+   "username": "Rodri"
+  , "title": "Joker"
+}
+
+
+###
 POST  http://localhost:3000/user/register
 Content-Type:application/json
 
@@ -27,11 +39,11 @@ GET http://localhost:3000/user/logout/5dd2b72d71b003780b14b983
 
 ###
 
-GET  http://localhost:3000/user/5dd55f7fb0e22c230088a8fe
+GET  http://localhost:3000/user/5ddbf8b2e36590331b664e2b
 Content-Type:application/json
 
 {
-   "username": "Rodri@badass.cool",
+   "username": "Rodri",
    "password": "123456Az"
 }
 ###
@@ -51,3 +63,40 @@ Content-Type:application/json
 GET  http://localhost:3000/movies/top-rated
 Content-Type:application/json
 
+
+###
+
+GET  http://localhost:3000/movies/new
+Content-Type:application/json
+
+
+###
+
+GET  http://localhost:3000/movies/id/5dce8e480982fb0ba70e0bd6
+Content-Type:application/json
+
+
+###
+
+GET  http://localhost:3000/movies/10402
+Content-Type:application/json
+
+   # "28","Action"
+   # "12","Adventure"
+   # "16", "Animation"
+   # "35","Comedy"
+   # "80", "Crime"
+   # "99", "Documentary"
+   # "18", "Drama"
+   # "10751", "Family"
+   # "14", "Fantasy"
+   # "36", "History"
+   # "27", "Horror"
+   # "10402", "Music"
+   # "9648", "Mystery"
+   # "10749", "Romance"
+   # "878", "Science Fiction"
+   # "10770", "TV Movie"
+   # "53", "Thriller"
+   # "10752", "War"
+   # "37", "Western"

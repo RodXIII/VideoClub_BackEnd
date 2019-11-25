@@ -6,16 +6,16 @@ const UserModel = require('../models/User');
 const registerController = require('../controllers/user/registerController');
 const loginController = require('../controllers/user/loginController');
 const profileController = require('../controllers/user/profileController');
-//const logoutController = require('../controllers/user/logoutController');
+const orderController = require('../controllers/user/orderController');
 
 //MIDDLEWARES
-const loggingMiddleware = require('../middlewares/loggingMiddleware');
-const authorizationMiddleware = require('../middlewares/authorizationMiddleware')
+const passMiddleware = require('../middlewares/passMiddleware')
 
 //ENDPOINTS CON CONTROLADORES APLICADOS
 router.post('/register', registerController);
 router.post('/login', loginController);
 router.get('/:id', profileController);
+router.patch('/order', orderController);
 
 //ENDPOINTS SIN FRAGMENTAR
 router.patch('/:id', (req, res) => {

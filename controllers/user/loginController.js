@@ -1,23 +1,47 @@
 const UserModel = require('../../models/User');
+const jwt = require('jsonwebtoken');
 
-const loginController = (req, res) => {
 
-    UserModel.findOne({
-        username: req.body.username,
-        password: req.body.password
-    })
-    .then(user => {
+async function loginController  (req, res)  {
+
+    try {
+
+        let user = await UserModel.findOne({
+            username: req.body.username
+        })
+
         if (!user) {
             return res.status(400).send({
                 message: 'Usuario o contraseña incorrectos'
             })
         }
+
+        const isMatch = await user.comparePassword(req.body.password)
+        if (!isMatch) {
+            return res.status(400).send({
+                message: 'Usuario o contraseña incorrectos'
+            })
+        }
+        
+        const token = jwt.sign({ _id: user._id }, 'missecretito', {
+            expiresIn: '24h'
+        });
+        await UserModel.findOneAndUpdate({  _id: user._id }, {
+            $push: {
+                tokens: token
+            }
+        })
+
         res.send({
             message: 'Bienvenido ' + user.username,
-            user
+            user,
+            token
         });
-    })
-    .catch(error => res.send(error.message))
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
 };
 
 module.exports = loginController;

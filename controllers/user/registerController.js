@@ -2,11 +2,14 @@ const UserModel = require('../../models/User');
 
 async function registerController(req, res) {
   try {
+
     const user = await new UserModel({
       username: req.body.username,
       password: req.body.password
-    }).save()  
+    }).save() 
+
     res.send(user)
+    
   } catch (error) {
     console.log(error);
   }
