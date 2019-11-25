@@ -11,7 +11,7 @@ const UserSchema = mongoose.Schema({
     tokens:[],
     order: {
         orderedMovie: String,
-        orderDate: Date,
+        orderDate: String,
         orderArrive: String,
         orderReturn: String
     }

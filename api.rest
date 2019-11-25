@@ -5,7 +5,7 @@ Content-Type:application/json
 
 {
    "username": "Rodri"
-  , "title": "Joker"
+  , "title": "101 dálmatas"
 }
 
 
@@ -14,6 +14,7 @@ POST  http://localhost:3000/user/register
 Content-Type:application/json
 
 {
+
    "username": "Rodri",
    "password": "123456Az"
 }
