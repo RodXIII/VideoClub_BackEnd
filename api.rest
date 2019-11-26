@@ -1,11 +1,12 @@
 ###
 
 PATCH  http://localhost:3000/user/order
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjMjdlODBmYjkzYzU5NjRiOWRkZGEiLCJpYXQiOjE1NzQ3NzE1NzQsImV4cCI6MTU3NDg1Nzk3NH0.5KRN99f2MgddeEAwc4iVdiLp4y6Swa58ibudDHgPlGY
 Content-Type:application/json
 
 {
    "username": "Rodri"
-  , "title": "101 dálmatas"
+  , "title": "Joker"
 }
 
 

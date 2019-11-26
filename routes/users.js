@@ -9,13 +9,13 @@ const profileController = require('../controllers/user/profileController');
 const orderController = require('../controllers/user/orderController');
 
 //MIDDLEWARES
-const passMiddleware = require('../middlewares/passMiddleware')
+const authorizationMiddleware = require('../middlewares/authorizationMiddleware')
 
 //ENDPOINTS CON CONTROLADORES APLICADOS
 router.post('/register', registerController);
 router.post('/login', loginController);
 router.get('/:id', profileController);
-router.patch('/order', orderController);
+router.patch('/order', authorizationMiddleware, orderController);
 
 //ENDPOINTS SIN FRAGMENTAR
 router.patch('/:id', (req, res) => {

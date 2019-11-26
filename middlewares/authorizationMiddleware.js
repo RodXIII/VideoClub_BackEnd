@@ -1,23 +1,32 @@
 const UserModel = require('../models/User');
-const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
-const authorizationMiddleware = (req, res, next) => {
+const authorizationMiddleware = async (req, res, next) => {
 
-    const token = req.headers.authorization;
+    try {
 
-    UserModel.findOne({
-        _id: req.body._id
-        
-    });
+        const token = req.headers.authorization;
+        const payload = jwt.verify(token, 'missecretito')
 
-    if (token === req.body.token) {
-        res.send({message: 'token valido'})
-        next();
 
-    } else {
-        res.status(401).json({
-            message: 'Invalid token'
+        const user = await UserModel.findOne({
+            _id: payload._id,
+            tokens: token
+
         });
+
+        if (!user) {
+            throw new Error('Unauthorized user')
+
+        }
+
+        req.user = user;
+
+        next()
+
+    } catch (error) {
+        console.log(error);
+        return res.status(401).send(error.message)
     }
 }
 
